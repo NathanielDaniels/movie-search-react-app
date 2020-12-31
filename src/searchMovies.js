@@ -15,8 +15,8 @@ export default function SearchMovies(){
             const res = await fetch(url);
             const data  = await res.json();
             setMovies(data.results);
-            console.log(data.results)
-        }catch(err){
+            // console.log(data.results)
+        } catch(err){
             console.error(err);
         }
     }
@@ -33,7 +33,7 @@ export default function SearchMovies(){
             </form>
             <div className="card-list">
               {movies.filter(movie => movie.poster_path).map(movie => (
-                <MovieCard movie={movie}/>
+                <MovieCard movie={movie} key={movie.id}/>
               ))}
             </div>    
         </>
