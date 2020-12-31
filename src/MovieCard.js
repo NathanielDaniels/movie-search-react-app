@@ -18,17 +18,8 @@ export default function MovieCard({movie}) {
 }
 
 
-
-
-
-
-
-
-
-
-
+//! ======================================================================
 // import React from 'react'
-
 
 // export default function MovieCard({movie}) {
 //   return (
