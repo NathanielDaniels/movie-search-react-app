@@ -16,21 +16,19 @@ export default function SearchMovies() {
       const data = await response.json()
       setMovies(data.results)
 
+      //? Filter Button
       const btn = document.createElement('button')
-      btn.classList.add('filter-button')
-      btn.innerHTML = `<button className="filter-button" type="button">Filter by rating</button>`;
-
-      // const filter = document.querySelector('.filter-button')
-      // filter.innerHTML = btn
-
-      document.body.appendChild(btn)
+      btn.classList.add('filter-button');
+      btn.setAttribute('type', 'button')
+      btn.innerHTML = `Filter by rating`;
+      document.querySelector('.card-list').appendChild(btn)
 
       //? filter data by rating
-
-      // document.querySelector('.filter-button').onclick = function() {
-      //   const filter = data.results.map(movie => movie).sort((a,b) => a.vote_average - b.vote_average).reverse()
-      //   setMovies(filter)
-      // }
+      document.querySelector('.filter-button').onclick = function() {
+        btn.style.display = 'block'
+        const filter = data.results.map(movie => movie).sort((a,b) => a.vote_average - b.vote_average).reverse()
+        setMovies(filter)
+      }
     } catch (err) {
       console.error(err)
     }
@@ -44,7 +42,7 @@ export default function SearchMovies() {
             value={query} onChange={(e) => setQuery(e.target.value)}
             />
         <button className="button" type="submit">Search</button>
-        <button className="filter-button" type="button">Filter by rating</button>
+        {/* <button className="filter-button" type="button">Filter by rating</button> */}
       </form>
       <div className="card-list">
         {movies.filter(movie => movie.poster_path).map(movie => (

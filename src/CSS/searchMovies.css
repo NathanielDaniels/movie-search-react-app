@@ -80,9 +80,11 @@ small {
 
 .card-list {
   margin-top: 4rem;
+  position: relative;
 }
 
 .card {
+  /* position: relative; */
   margin: auto;
   max-width: 70em;
   padding: 2rem 4rem;
@@ -99,19 +101,18 @@ small {
   display: block;
 }
 
-/* .card--content {
-  display: none'
-} */
-
 .card--content > .card--title {
   margin-bottom: 0.5rem;
   font-size: 3.2rem;
 }
 
 .filter-button {
-  display: none;
+  /* border: none; */
+  outline: none;
+  padding: 5px 10px;
+  text-transform: uppercase;
   position: absolute;
   top: 0;
-  left: 0;
+  left: -2em;
   cursor: pointer;
 }
