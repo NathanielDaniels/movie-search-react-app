@@ -110,9 +110,9 @@ small {
   /* border: none; */
   outline: none;
   padding: 5px 10px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   position: absolute;
   top: 0;
-  left: -2em;
+  left: -1em;
   cursor: pointer;
 }

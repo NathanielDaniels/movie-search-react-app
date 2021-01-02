@@ -42,10 +42,9 @@ export default function SearchMovies() {
             value={query} onChange={(e) => setQuery(e.target.value)}
             />
         <button className="button" type="submit">Search</button>
-        {/* <button className="filter-button" type="button">Filter by rating</button> */}
       </form>
       <div className="card-list">
-        {movies.filter(movie => movie.poster_path).map(movie => (
+        {movies.filter(movie => movie.poster_path && movie.overview && (movie.vote_average !== 0)).map(movie => (
           <MovieCard movie={movie} key={movie.id}/>
         ))}
       </div>
