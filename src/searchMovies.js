@@ -32,6 +32,8 @@ export default function SearchMovies() {
     } catch (err) {
       console.error(err)
     }
+    //? reset Input Value
+    setQuery('')
   }
   return (
     <>
