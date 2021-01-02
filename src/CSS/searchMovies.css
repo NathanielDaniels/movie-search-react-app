@@ -94,12 +94,24 @@ small {
   cursor: pointer;
 }
 
-.card--title {
+.card--image {
+  margin: 0 auto;
+  display: block;
+}
+
+/* .card--content {
+  display: none'
+} */
+
+.card--content > .card--title {
   margin-bottom: 0.5rem;
   font-size: 3.2rem;
 }
 
-.card--image {
-  margin: 0 auto;
-  display: block;
+.filter-button {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
 }

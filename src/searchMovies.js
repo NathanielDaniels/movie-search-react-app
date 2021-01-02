@@ -15,27 +15,42 @@ export default function SearchMovies() {
       const response = await fetch(url)
       const data = await response.json()
       setMovies(data.results)
-      // console.log(data.results)
-    } 
-    catch (err) {
+
+      const btn = document.createElement('button')
+      btn.classList.add('filter-button')
+      btn.innerHTML = `<button className="filter-button" type="button">Filter by rating</button>`;
+
+      // const filter = document.querySelector('.filter-button')
+      // filter.innerHTML = btn
+
+      document.body.appendChild(btn)
+
+      //? filter data by rating
+
+      // document.querySelector('.filter-button').onclick = function() {
+      //   const filter = data.results.map(movie => movie).sort((a,b) => a.vote_average - b.vote_average).reverse()
+      //   setMovies(filter)
+      // }
+    } catch (err) {
       console.error(err)
     }
   }
   return (
     <>
-    <form className="form" onSubmit={searchMovies}>
-      <label className="label" htmlFor="query">Movie Name</label>
-      <input className="input" type="text" name="query"
-        placeholder="i.e. Jurassic Park"
-          value={query} onChange={(e) => setQuery(e.target.value)}
-          />
-      <button className="button" type="submit">Search</button>
-    </form>
-    <div className="card-list">
-      {movies.filter(movie => movie.poster_path).map(movie => (
-        <MovieCard movie={movie} key={movie.id}/>
-      ))}
-    </div>
+      <form className="form" onSubmit={searchMovies}>
+        <label className="label" htmlFor="query">Movie Name</label>
+        <input className="input" type="text" name="query"
+          placeholder="i.e. Jurassic Park"
+            value={query} onChange={(e) => setQuery(e.target.value)}
+            />
+        <button className="button" type="submit">Search</button>
+        <button className="filter-button" type="button">Filter by rating</button>
+      </form>
+      <div className="card-list">
+        {movies.filter(movie => movie.poster_path).map(movie => (
+          <MovieCard movie={movie} key={movie.id}/>
+        ))}
+      </div>
     </>
   )
   }
