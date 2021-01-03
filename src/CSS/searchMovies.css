@@ -107,7 +107,6 @@ small {
 }
 
 .filter-button {
-  /* border: none; */
   outline: none;
   padding: 5px 10px;
   text-transform: capitalize;
