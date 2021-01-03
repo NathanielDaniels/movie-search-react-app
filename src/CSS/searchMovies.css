@@ -54,6 +54,11 @@ small {
   margin-bottom: 1rem;
 }
 
+.input-placeholder::placeholder {
+  color: red;
+  font-weight: 600;
+}
+
 .button {
   background-color: rgba(0, 0, 0, 0.75);
   color: white;
