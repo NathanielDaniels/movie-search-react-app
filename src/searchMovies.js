@@ -18,23 +18,34 @@ export default function SearchMovies() {
     btn.innerHTML = `Filter by rating`;
     document.querySelector('.card-list').appendChild(btn)
 
-    try {
-      //? Fetch Data from movie API
-      const response = await fetch(url)
-      const data = await response.json()
-      setMovies(data.results)
+    //? Movie Search
+    const formInput = document.querySelector('form > .input')
+    if (formInput.value !== '') {
+      formInput.placeholder = "i.e. Jurassic Park"
+      try {
+        //? Fetch Data from movie API
+        const response = await fetch(url)
+        const data = await response.json()
+        setMovies(data.results)
+        console.log("results",data.results.map(movie => movie.title))
 
-      //? filter data by rating
-      document.querySelector('.filter-button').onclick = function() {
-        btn.style.display = 'block'
-        const filter = data.results.map(movie => movie).sort((a,b) => a.vote_average - b.vote_average).reverse()
-        setMovies(filter)
+        //? filter data by rating
+        document.querySelector('.filter-button').onclick = function() {
+          btn.style.display = 'block'
+            let filter = data.results.map(movie => movie).sort((a,b) => a.vote_average - b.vote_average).reverse()
+            setMovies(filter)
+            console.log(filter.map(movie => movie.title))
+        }
+      } catch (err) {
+        console.error(err)
       }
-    } catch (err) {
-      console.error(err)
+    } else {
+      formInput.placeholder = "Movie Title Required!"
     }
+
     //? reset Input Value
     setQuery('')
+    
   }
   return (
     <>

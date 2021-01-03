@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+
 html {
   font-size: 10px;
+  font-family: 'Roboto';
 }
 
 * {
@@ -73,6 +76,11 @@ small {
     align-items: center;
   }
 
+  .form > .label {
+    letter-spacing: .1px;
+    font-size: 1.5rem;
+  }
+
   .input {
     margin-bottom: 0;
   }
@@ -84,16 +92,13 @@ small {
 }
 
 .card {
-  /* position: relative; */
   margin: auto;
   max-width: 70em;
   padding: 2rem 4rem;
   border-radius: 10px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
   margin-bottom: 2rem;
-  background-color: white;
-  /* color: #fff; */
-  cursor: pointer;
+  background-color:#fff;
 }
 
 .card--image {
@@ -109,9 +114,13 @@ small {
 .filter-button {
   outline: none;
   padding: 5px 10px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .6);
   text-transform: capitalize;
   position: absolute;
   top: 0;
   left: -1em;
   cursor: pointer;
+  letter-spacing: .1px;
 }
