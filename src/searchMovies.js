@@ -30,17 +30,18 @@ export default function SearchMovies() {
         const response = await fetch(url)
         const data = await response.json()
         setMovies(data.results)
-        console.log("results",data.results.map(movie => movie.title))
+        console.log("Fetched results", data.results.map(movie => movie.title))
+        console.log("Inside Movies state",[...movies.map(movie => movie.title)])
 
         //? filter data by rating
         document.querySelector('.filter-button').onclick = function() {
           btn.style.display = 'block'
-            let filter = data.results.map(movie => movie).sort((a,b) => a.vote_average - b.vote_average).reverse()
-            setMovies(filter)
-            console.log(filter.map(movie => movie.title))
+          let filteredResults = data.results.map(movie => movie).sort((a,b) => a.vote_average - b.vote_average).reverse()
+          console.log("Filtered", filteredResults.map(movie => movie.title))
+          setMovies(filteredResults)
         }
       } catch (err) {
-        console.error(err)
+        console.error("Catch Error: ", err)
       }
     } else {
       formInput.classList.add('input-placeholder')
