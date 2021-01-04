@@ -6,6 +6,8 @@ export default function SearchMovies() {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
 
+  // useEffect(() => {})
+
   const searchMovies = async (e) => {
     e.preventDefault()
     const formInput = document.querySelector('form > .input')
@@ -51,6 +53,8 @@ export default function SearchMovies() {
     //? reset Input Value
     setQuery('')
   }
+
+          
   return (
     <>
       <form className="form" onSubmit={searchMovies}>
